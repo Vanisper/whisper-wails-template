@@ -1,0 +1,52 @@
+<template>
+  <!-- 缓存处理 -->
+  <!-- 这种方式当从缓存路由切换到非缓存路由之后 之前的缓存路由会丢失 -->
+  <!-- <router-view>
+    <template #default="{ Component, route }">
+      <component
+        v-if="!route.meta.keepAlive"
+        :is="Component"
+        :key="route.fullPath"
+      ></component>
+      <keep-alive v-else>
+        <component :is="Component" :key="route.fullPath"></component>
+      </keep-alive>
+    </template>
+  </router-view> -->
+  <router-view v-slot="{ Component, route }">
+    <!--
+      这里的include\exclude匹配的是组件的name属性 而不是路由的name属性
+      setup的组件是没有显式定义name属性的 所以需要在script标签中显式定义name属性
+      详见：https://github.com/vuejs/core/issues/7799
+    -->
+    <keep-alive :include="cachedViews">
+      <component :is="Component" :key="route.fullPath" />
+    </keep-alive>
+  </router-view>
+</template>
+
+<script setup lang="ts">
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+type MatchPattern = string | RegExp;
+// 缓存的页面
+const cachedViews = ref<MatchPattern[]>([]);
+
+// 监听路由改变
+watch(
+  () => route.path,
+  () => {
+    // 缓存页面
+    const routeName = route.name as string;
+    if (route.meta.keepAlive && cachedViews.value.indexOf(routeName) == -1) {
+      cachedViews.value.push(routeName);
+    }
+  },
+  {
+    immediate: true,
+  }
+);
+</script>
