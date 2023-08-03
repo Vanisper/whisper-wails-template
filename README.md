@@ -4,6 +4,8 @@
 
 这是一个Wails的模板
 
+使用: `wails init -n YourProjectName -t https://github.com/Vanisper/whisper-wails-template`
+
 ## Live Development
 
 To run in live development mode, run `wails dev` in the project directory. In another terminal, go into the `frontend`
