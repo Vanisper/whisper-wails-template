@@ -26,7 +26,7 @@
       </template>
       <template #extend-center>
         <div style="height: 100%;display: flex;justify-content: center;align-items: center;">
-          <span>undeinfed</span>
+          <span>双击Loding界面即可撤去Loading</span>
         </div>
       </template>
       <template #extend-right>
