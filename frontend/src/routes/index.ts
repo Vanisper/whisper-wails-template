@@ -39,12 +39,18 @@ const createRouterGuards = (router: Router) => {
   const oldTitle = document.title;
   router.beforeEach((to, _from, next) => {
     // console.log("to", to.meta);
-    // console.log("from", from.meta);
+    // console.log("from", _from.meta);
     // 如果路由meta中设置了title，那么就设置title 否则使用最开始的title
     const newTitle = to.meta.title as string | undefined;
     document.title = newTitle || oldTitle;
     next();
   });
+  router.afterEach((to, from) => {
+    const toDepth = to.path.split('/').length
+    const fromDepth = from.path.split('/').length
+    to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    // to.meta.transition = "fade"
+  })
 };
 export const setupRouter = (app: App) => {
   app.use(router);
