@@ -1,6 +1,6 @@
 <template>
   <div style="height: 300vh;">
-  <h1>滚动条缓动测试</h1>
+    <h1>滚动条缓动测试</h1>
   </div>
 </template>
 

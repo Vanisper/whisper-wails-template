@@ -1,6 +1,8 @@
 <template>
-  <h1>{{ $route.name }}</h1>
-  <input type="text" />
+  <div>
+    <h1>{{ $route.name }}</h1>
+    <input type="text" />
+  </div>
 </template>
 
 <script lang="ts" setup>

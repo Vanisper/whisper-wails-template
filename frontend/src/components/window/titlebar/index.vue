@@ -90,7 +90,7 @@ window.addEventListener("resize", async () => {
 
 <style scoped lang="less">
 header {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   height: v-bind("props.style?.height || '32px'");
   min-height: v-bind("props.style?.height || '32px'");
