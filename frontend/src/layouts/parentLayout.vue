@@ -106,7 +106,7 @@ import TitleBar from "@/components/window/titlebar/index.vue";
 import ASideBar from "@/components/window/asidebar/index.vue";
 
 import ToggleTheme from "@/components/button/ToggleTheme.vue";
-import { WindowMinimise, WindowMaximise, WindowClose, WindowOnTop, WindowIsMaximised, WindowIsOnToped, WindowIsFullScreen } from "@wailsjs/go/app/App";
+import { WindowMinimise, WindowMaximise, WindowClose, WindowOnTop, WindowIsMaximised, WindowIsOnToped, WindowIsFullScreen } from "@wailsjs/go/main/App";
 
 import { appConfig } from "@/configs/app.ts";
 import { onMounted, ref } from "vue";
