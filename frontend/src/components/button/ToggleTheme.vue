@@ -1,5 +1,5 @@
 <template>
-    <button class="theme-toggle" :class="{ 'dark': isDark }" @click="toggleTheme">
+    <button class="theme-toggle" @click="toggleTheme">
         <svg class="sun-and-moon" aria-hidden="true" style="height: fit-content;width: fit-content;" viewBox="0 0 24 24"
             ref="svg">
             <mask class="moon" id="moon-mask">
@@ -29,10 +29,13 @@ const props = defineProps({
     },
     duration: {
         type: Number,
-    }
+    },
+    persist: {
+        type: Boolean,
+    },
 })
 
-const isDark = ref(false)
+const isDarkTheme = ref(false)
 const toggleTheme = (event: MouseEvent) => {
     const x = event.clientX;
     const y = event.clientY;
@@ -45,8 +48,12 @@ const toggleTheme = (event: MouseEvent) => {
     const switchTheme = (() => {
         const root = document.documentElement;
         isDark = root.classList.contains("dark");
-        root.classList.remove(isDark ? "dark" : "light");
-        root.classList.add(isDark ? "light" : "dark");
+        isDark ? (root.classList.remove("dark"), root.classList.add("light"), document.body.removeAttribute('arco-theme')) : (root.classList.remove("light"), root.classList.add("dark"), document.body.setAttribute('arco-theme', 'dark'));
+        
+        if (props.persist) {
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            isDarkTheme.value = !isDarkTheme.value;
+        }
     })
     // @ts-ignore 适配不支持startViewTransition的浏览器
     if (!document?.startViewTransition) {
@@ -84,6 +91,14 @@ onMounted(() => {
         const height = svg.value.clientHeight;
         svg.value.style.height = (props.size || width) + "px";
         svg.value.style.width = (props.size || height) + "px";
+    }
+
+    if (props.persist) {
+        isDarkTheme.value = localStorage.getItem('theme') === 'dark';
+        localStorage.setItem('theme', isDarkTheme.value ? 'dark' : 'light');
+
+        const root = document.documentElement;
+        isDarkTheme.value ? (root.classList.add("dark"), root.classList.remove("light"), document.body.setAttribute('arco-theme', 'dark')) : (root.classList.remove("dark"), root.classList.add("light"), document.body.removeAttribute('arco-theme'));
     }
 })
 </script>

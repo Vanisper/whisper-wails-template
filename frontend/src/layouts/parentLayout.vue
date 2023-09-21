@@ -1,8 +1,9 @@
 <template>
   <div v-if="LayoutMode == 'column'" style="height: 100%;display: flex;flex-direction: column;">
     <!-- 异步组件 -->
+    <!-- 自定义titlebar -->
     <suspense>
-      <!-- 自定义titlebar -->
+      <!-- <title-bar ref="header" :style="{ -->
       <title-bar ref="header" :WindowMinimise="WindowMinimise" :WindowMaximise="WindowMaximise" :WindowClose="WindowClose"
         :WindowOnTop="WindowOnTop" :WindowIsMaximised="WindowIsMaximised" :WindowIsOnToped="WindowIsOnToped"
         :WindowIsFullScreen="WindowIsFullScreen" :style="{
@@ -27,7 +28,6 @@
         </template>
         <template #extend-center>
           <div style="height: 100%;display: flex;justify-content: center;align-items: center;">
-            <!-- <span>双击Loding界面即可撤去Loading</span> -->
           </div>
         </template>
         <template #extend-right>
@@ -37,33 +37,53 @@
     </suspense>
     <section class="page-container" :class="{ 'loading': isLoading }" @dblclick="cancelLoading"
       style="--color-link: var(--text-link);--color-bg: var(--text-invert);height: calc(100% - 32px);">
-      <a-side-bar>
-        <template #extend-bottom>
+      <a-side-bar :Expand="Expand" :style="{
+        color: '#3491FA',
+        actionColor: '#fff',
+        hoverColor: '#3491FA',
+        buttonActionColor: '#3491FA',
+        // buttonHoverColor: '#FFCD87',
+      }">
+        <template #extend-bottom-end>
           <toggle-theme style="width: 40px; height: 40px;  margin-left: auto; margin-right: auto; margin-top: 8.75px;"
             :size="20" :duration="200" />
         </template>
       </a-side-bar>
-      <main ref="smoothDom" class="page-content ">
+      <main ref="smoothDom" class="page-content">
         <router-view />
       </main>
     </section>
   </div>
   <div v-else style="height: 100%;display: flex;flex-direction: row;">
-    <a-side-bar>
-      <template #extend-bottom>
-        <toggle-theme style="width: 40px; height: 40px;  margin-left: auto; margin-right: auto; margin-top: 8.75px;"
-          :size="20" :duration="200" />
+    <a-side-bar :Expand="Expand" :style="{
+      color: '#3491FA',
+      actionColor: '#fff',
+      hoverColor: '#3491FA',
+      buttonActionColor: '#3491FA',
+      // buttonHoverColor: '#FFCD87',
+    }">
+      <template #extend-top-before>
+        <div
+          style="width: 100%;display: flex;justify-content: center;user-select: none;margin-bottom: 30px;flex-direction: column;align-items: center;">
+          <img style="width: 90%;height: 100px;object-fit: cover;-webkit-user-drag: none;"
+            src="../assets/images/baidu.png" alt="logo">
+          <!-- <span style="font-size: 16px;text-align: center;margin-top: 10px;">{{ appConfig.name }}</span> -->
+        </div>
+      </template>
+      <template #extend-bottom-end>
+        <toggle-theme style="width: 40px; height: 40px;" :size="20" :duration="200" :persist="true" />
       </template>
     </a-side-bar>
     <div style="width: 100%;display: flex;flex-direction: column;">
+      <!-- 自定义titlebar -->
       <suspense>
-        <!-- 自定义titlebar -->
+        <!-- <title-bar ref="header" :style="{  -->
         <title-bar ref="header" :WindowMinimise="WindowMinimise" :WindowMaximise="WindowMaximise"
           :WindowClose="WindowClose" :WindowOnTop="WindowOnTop" :WindowIsMaximised="WindowIsMaximised"
           :WindowIsOnToped="WindowIsOnToped" :WindowIsFullScreen="WindowIsFullScreen" :style="{
             height: '32px',
             color: 'var(--text-primary)',
-            backgroundColor: 'var(--background-secondary)',
+            backgroundColor: 'var(--background-primary)',
             borderBottomColor: 'var(--border-primary)',
             control: {
               fill: 'var(--text-primary)',
@@ -74,25 +94,18 @@
               },
             }
           }">
-          <!-- <template #extend-left>
-            <div style="display:flex;height: 100%;justify-content: center;align-items: center;">
-              <img :src="appConfig.icon" style="height: 100%;padding: 5px;">
-              <span>{{ appConfig.name }}</span>
-            </div>
-          </template> -->
           <template #extend-center>
             <div style="height: 100%;display: flex;justify-content: center;align-items: center;">
-              <!-- <span>双击Loding界面即可撤去Loading</span> -->
             </div>
           </template>
           <template #extend-right>
-            <toggle-theme class="toggle-theme" :size="18" :duration="200" />
+            <toggle-theme class="toggle-theme" :size="18" :duration="200" :persist="true" />
           </template>
         </title-bar>
       </suspense>
       <section class="page-container" :class="{ 'loading': isLoading }" @dblclick="cancelLoading"
         style="--color-link: var(--text-link);--color-bg: var(--text-invert);height: calc(100% - 32px);">
-        <main ref="smoothDom" class="page-content ">
+        <main ref="smoothDom" class="page-content">
           <router-view />
         </main>
       </section>
@@ -117,6 +130,10 @@ defineProps({
   LayoutMode: {
     type: String as () => ("column" | "row"),
     default: "row",
+  },
+  Expand: {
+    type: Boolean,
+    default: false,
   },
 })
 

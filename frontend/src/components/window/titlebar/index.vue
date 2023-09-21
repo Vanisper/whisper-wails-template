@@ -23,7 +23,6 @@
 
 <script setup lang="ts">
 import { PropType, ref, } from "vue";
-import { WindowIsMaximised } from "@wailsjs/runtime";
 import WindowControls from "../control/index.vue";
 // @ts-ignore
 import OldWindowControls from "../control/old.vue";
@@ -31,31 +30,38 @@ import OldWindowControls from "../control/old.vue";
 const props = defineProps({
   WindowMinimise: {
     type: Function as PropType<() => Promise<void> | void>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   WindowMaximise: {
     type: Function as PropType<() => Promise<void> | void>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   WindowClose: {
     type: Function as PropType<(isHidden: boolean) => Promise<void> | void>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   WindowOnTop: {
     type: Function as PropType<() => Promise<void> | void>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   WindowIsMaximised: {
     type: Function as PropType<() => Promise<boolean> | boolean>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   WindowIsOnToped: {
     type: Function as PropType<() => Promise<boolean> | boolean>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   WindowIsFullScreen: {
     type: Function as PropType<() => Promise<boolean> | boolean>,
-    required: true,
+    required: false,
+    default: () => { }
   },
   style: {
     type: Object as PropType<{

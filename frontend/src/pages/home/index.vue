@@ -1,6 +1,7 @@
 <template>
   <div style="height: 300vh;">
-    <h1>滚动条缓动测试</h1>
+    <h1>首页</h1>
+    <a-button @click="useTest().increment">add: {{ useTest().count }}</a-button>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-
+import { useTest } from "@/stores/modules";
 
 </script>
 

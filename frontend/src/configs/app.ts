@@ -1,4 +1,4 @@
-import favicon from "@/../public/favicon.ico?url";
+import favicon from "/favicon.ico?url";
 
 export const appConfig = {
     name: '软件名称',

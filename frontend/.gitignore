@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# vite相关插件
+auto-imports.d.ts
+components.d.ts
+
+package.json
+pnpm-lock.yaml

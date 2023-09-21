@@ -6,13 +6,15 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
-  plugins: [vue()],
+  plugins: [
+    vue(),
+  ],
   resolve: {
     //设置路径别名
     alias: {
       "@": path.resolve(__dirname, "./src"),
       "@wailsjs": path.resolve(__dirname, "./wailsjs"),
-      // '@': fileURLToPath(new URL('./src', import.meta.url))
+      // "@": fileURLToPath(new URL("./src", import.meta.url))
     },
   },
   css: {
