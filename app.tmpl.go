@@ -6,6 +6,8 @@ import (
 	"os"
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
+
+	"{{.ProjectName}}/pkg/utils"
 )
 
 // App struct
@@ -25,7 +27,7 @@ func NewApp() *App {
 // startup 启动时生命周期
 func (a *App) startup(ctx context.Context) {
 	// 初始化运行目录
-	err := os.Chdir(GetCurrPath())
+	err := os.Chdir(utils.GetCurrPath())
 	if err != nil {
 		panic(err)
 	}

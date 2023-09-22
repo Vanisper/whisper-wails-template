@@ -4,26 +4,12 @@ import (
 	"embed"
 	"log"
 
-	"os"
-	"os/exec"
-	"path/filepath"
-	"strings"
-
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
 )
-
-// GetCurrPath 获取程序运行路径
-func GetCurrPath() string {
-	f, _ := exec.LookPath(os.Args[0])
-	path, _ := filepath.Abs(f)
-	index := strings.LastIndex(path, string(os.PathSeparator))
-	ret := path[:index]
-	return ret
-}
 
 //go:embed all:frontend/dist
 var assets embed.FS
@@ -59,7 +45,7 @@ func main() {
 			DisableWindowIcon:    false,
 			// DisableFramelessWindowDecorations: false,
 			WebviewUserDataPath: "",
-			ZoomFactor: 1.0,
+			ZoomFactor:          1.0,
 		},
 		// Mac platform specific options
 		Mac: &mac.Options{

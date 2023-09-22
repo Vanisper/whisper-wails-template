@@ -1,10 +1,10 @@
-module changeme
+module {{.ProjectName}}
 
-        go 1.18
+go 1.18
 
-        require github.com/wailsapp/wails/v2 {{.WailsVersion}}
+require github.com/wailsapp/wails/v2 {{.WailsVersion}}
 
-        require (
+require (
         github.com/go-ole/go-ole v1.2.6 // indirect
         github.com/google/uuid v1.1.2 // indirect
         github.com/imdario/mergo v0.3.12 // indirect
@@ -27,6 +27,6 @@ module changeme
         golang.org/x/net v0.0.0-20211015210444-4f30a5c0130f // indirect
         golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
         golang.org/x/text v0.3.7 // indirect
-        )
+)
 
-        // replace github.com/wailsapp/wails/v2 {{.WailsVersion}} => {{.WailsDirectory}}
+// replace github.com/wailsapp/wails/v2 {{.WailsVersion}} => {{.WailsDirectory}}
