@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "humao.rest-client",
+        "gruntfuggly.todo-tree",
+        "dbaeumer.vscode-eslint",
+        "rvest.vs-code-prettier-eslint",
+        "vue.vscode-typescript-vue-plugin",
+        "vue.volar"
+    ]
+}

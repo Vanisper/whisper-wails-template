@@ -1,0 +1,19 @@
+# # 表示是最顶层的配置文件，发现值为true时，才会停止查找.editorconfig文件
+# root = true
+# [*]
+# # 设置使用那种缩进风格(tab是制表符，space是空格)
+# indent_style = space
+
+# # 设置换行符，值为lf、cr和crlf
+# end_of_line = auto
+# charset = utf-8
+# # 设置为true则删除换行符之前的任何空白字符
+# # 设置为true会删除每一行后的任何空格  ***
+# trim_trailing_whitespace = true
+# insert_final_newline = true
+
+# [*.md]
+# trim_trailing_whitespace = false
+
+# [*.{ts,js,vue,css,scss,less,html,json}]
+# indent_size = 4
