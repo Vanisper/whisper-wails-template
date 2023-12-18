@@ -1,7 +1,9 @@
 <template>
     <a-layout class="layout" :class="{ mobile: appStore.hideMenu }">
         <div v-if="navbar" class="layout-navbar">
-            <NavBar />
+            <nav-bar>
+                <window-controls-auto style="width: fit-content;" />
+            </nav-bar>
         </div>
         <a-layout>
             <a-layout style="background-color: var(--color-bg-2);">
@@ -41,6 +43,7 @@ import TabBar from '@/components/tab-bar/index.vue';
 import usePermission from '@/hooks/permission';
 import useResponsive from '@/hooks/responsive';
 import PageLayout from './page-layout.vue';
+import windowControlsAuto from '@/components/window/control/template-auto.vue';
 
 const isInit = ref(false);
 const appStore = useAppStore();
