@@ -1,7 +1,0 @@
-{
-  "name": "Whisper Wails Template",
-  "shortname": "whisper-wails-template",
-  "author": "Vanisper",
-  "description": "前端: Vue3+Vite+Typescript, 并且已预设好主题系统;\n后端: 已封装好一些wails的方法暴露给前端使用, 无边框模式, 前端自己构建TitleBar.",
-  "helpurl": "https://github.com/Vanisper/whisper-wails-template"
-}
