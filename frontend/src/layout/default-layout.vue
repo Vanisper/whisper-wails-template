@@ -43,10 +43,7 @@ import TabBar from '@/components/tab-bar/index.vue';
 import usePermission from '@/hooks/permission';
 import useResponsive from '@/hooks/responsive';
 import PageLayout from './page-layout.vue';
-<<<<<<< HEAD
-=======
 import windowControlsAuto from '@/components/window/control/template-auto.vue';
->>>>>>> arco-design
 
 const isInit = ref(false);
 const appStore = useAppStore();
