@@ -208,10 +208,7 @@
         </a-dropdown>
       </li>
     </ul>
-<<<<<<< HEAD
-=======
     <slot />
->>>>>>> arco-design
   </div>
 </template>
 

@@ -1,13 +1,9 @@
 <template>
     <a-layout class="layout" :class="{ mobile: appStore.hideMenu }">
         <div v-if="navbar" class="layout-navbar">
-<<<<<<< HEAD
-            <NavBar />
-=======
             <nav-bar>
                 <window-controls-auto style="width: fit-content;" />
             </nav-bar>
->>>>>>> arco-design
         </div>
         <a-layout>
             <a-layout style="background-color: var(--color-bg-2);">

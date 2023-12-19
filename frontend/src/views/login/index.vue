@@ -1,9 +1,6 @@
 <template>
     <div class="container">
-<<<<<<< HEAD
-=======
         <window-controls-auto style="position: fixed;z-index: 2;--wails-draggable: drag;" />
->>>>>>> arco-design
         <div class="logo">
             <img alt="logo"
                 :src="LogoSvg" />
@@ -23,10 +20,7 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-<<<<<<< HEAD
-=======
 import windowControlsAuto from '@/components/window/control/template-auto.vue';
->>>>>>> arco-design
 import Footer from '@/components/footer/index.vue';
 import LoginBanner from './components/banner.vue';
 import LoginForm from './components/login-form.vue';
