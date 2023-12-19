@@ -6,6 +6,10 @@
     @mousedown.stop
     @contextmenu.prevent
   >
+<<<<<<< HEAD
+=======
+    <window-controls-dark />
+>>>>>>> arco-design
     <template v-if="!showLogin">
       <div class="lock-box">
         <div class="lock">
@@ -78,6 +82,7 @@
 import { defineComponent, reactive, toRefs } from 'vue';
 import { ResultEnum } from '@/enum/httpEnum';
 import recharge from './re-charge.vue';
+<<<<<<< HEAD
 // import {
 //     LockOutlined,
 //     LoadingOutlined,
@@ -86,6 +91,9 @@ import recharge from './re-charge.vue';
 //     ArrowRightOutlined,
 //     WifiOutlined,
 // } from '@vicons/antd';
+=======
+import windowControlsDark from '@/components/window/control/template-dark.vue';
+>>>>>>> arco-design
 
 import { useRouter, useRoute } from 'vue-router';
 import { useOnline } from '@/hooks/useOnline';
@@ -99,6 +107,10 @@ export default defineComponent({
     name: 'Lockscreen',
     components: {
         recharge,
+<<<<<<< HEAD
+=======
+        windowControlsDark,
+>>>>>>> arco-design
     },
     setup() {
         const useLockscreen = useLockscreenStore();

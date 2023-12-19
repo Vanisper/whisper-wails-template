@@ -18,6 +18,9 @@
             "@core/*": [
                 "src-core/*"
             ],
+            "@wailsjs/*": [
+                "wailsjs/*"
+            ],
         },
         "lib": [
             "es2020",

@@ -27,6 +27,10 @@ export default defineConfig({
                 replacement: resolve(__dirname, '../src-core'),
             },
             {
+                find: '@wailsjs',
+                replacement: resolve(__dirname, '../wailsjs'),
+            },
+            {
                 find: 'assets',
                 replacement: resolve(__dirname, '../src/assets'),
             },
