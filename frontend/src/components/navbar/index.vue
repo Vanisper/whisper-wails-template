@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" style="--wails-draggable: drag">
+  <div class="navbar" style="--wails-draggable: drag;">
     <div class="left-side">
       <a-space>
         <img alt="logo" :src="LogoSvg" style="width: 35px;height: 35px;" />

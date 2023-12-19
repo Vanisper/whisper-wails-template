@@ -1,9 +1,8 @@
 <template>
   <div
     :class="{ onLockLogin: showLogin }"
-    class="lockscreen"
+    class="lockscreen" style="--wails-draggable: drag;"
     @keyup="onLockLogin(true)"
-    @mousedown.stop
     @contextmenu.prevent
   >
     <window-controls-dark />
